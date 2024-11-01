@@ -199,7 +199,7 @@ public abstract class ExpressionRoundtripTest {
 
     @Disabled("no jackson module can handle serialization/deserialization")
     @Test
-    void literaljakartaMeassureUnit() throws Exception {
+    void literalJavaxMeassureUnit() throws Exception {
         roundtripTest(literal(SI.ASTRONOMICAL_UNIT));
     }
 
@@ -457,7 +457,7 @@ public abstract class ExpressionRoundtripTest {
      *   <li>java.util.Date
      *   <li>java.util.List
      *   <li>java.util.Map
-     *   <li>jakarta.measure.Unit
+     *   <li>javax.measure.Unit
      *   <li>org.geotools.filter.function.Classifier
      *   <li>org.geotools.filter.function.color.AbstractHSLFunction.Method
      *   <li>org.geotools.styling.visitor.RescalingMode
@@ -486,7 +486,7 @@ public abstract class ExpressionRoundtripTest {
             case "java.util.Date" -> new Date(60183226800000L);
             case "java.util.List" -> Collections.singletonList("single list value");
             case "java.util.Map" -> Collections.singletonMap("single map key", "single map value");
-            case "jakarta.measure.Unit" -> SI.ASTRONOMICAL_UNIT;
+            case "javax.measure.Unit" -> SI.ASTRONOMICAL_UNIT;
             case "org.geotools.filter.function.Classifier" -> null;
                 // sigh, this is a package-private enum, returning null
             case "org.geotools.filter.function.color.AbstractHSLFunction.Method" -> null;
