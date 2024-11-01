@@ -19,7 +19,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.SQLTransientConnectionException;
 
-import jakarta.sql.DataSource;
+import javax.sql.DataSource;
 
 @SpringBootTest(
         classes = AutoConfigurationTestConfiguration.class,

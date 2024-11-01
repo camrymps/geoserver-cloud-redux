@@ -13,15 +13,15 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 
-import jakarta.naming.Binding;
-import jakarta.naming.Context;
-import jakarta.naming.Name;
-import jakarta.naming.NameClassPair;
-import jakarta.naming.NameNotFoundException;
-import jakarta.naming.NameParser;
-import jakarta.naming.NamingEnumeration;
-import jakarta.naming.NamingException;
-import jakarta.naming.OperationNotSupportedException;
+import javax.naming.Binding;
+import javax.naming.Context;
+import javax.naming.Name;
+import javax.naming.NameClassPair;
+import javax.naming.NameNotFoundException;
+import javax.naming.NameParser;
+import javax.naming.NamingEnumeration;
+import javax.naming.NamingException;
+import javax.naming.OperationNotSupportedException;
 
 /**
  * Simple implementation of a JNDI naming context. Only supports binding plain Objects to String
@@ -163,7 +163,7 @@ public class SimpleNamingContext implements Context {
     }
 
     /**
-     * @throws OperationNotSupportedException jakarta.naming.Name is not supported
+     * @throws OperationNotSupportedException javax.naming.Name is not supported
      */
     @Override
     public NamingEnumeration<NameClassPair> list(Name name) throws NamingException {
@@ -171,7 +171,7 @@ public class SimpleNamingContext implements Context {
     }
 
     /**
-     * @throws OperationNotSupportedException jakarta.naming.Name is not supported
+     * @throws OperationNotSupportedException javax.naming.Name is not supported
      */
     @Override
     public NamingEnumeration<Binding> listBindings(Name name) throws NamingException {
@@ -179,7 +179,7 @@ public class SimpleNamingContext implements Context {
     }
 
     /**
-     * @throws OperationNotSupportedException jakarta.naming.Name is not supported
+     * @throws OperationNotSupportedException javax.naming.Name is not supported
      */
     @Override
     public Object lookup(Name name) throws NamingException {
@@ -187,7 +187,7 @@ public class SimpleNamingContext implements Context {
     }
 
     /**
-     * @throws OperationNotSupportedException jakarta.naming.Name is not supported
+     * @throws OperationNotSupportedException javax.naming.Name is not supported
      */
     @Override
     public Object lookupLink(Name name) throws NamingException {
@@ -195,7 +195,7 @@ public class SimpleNamingContext implements Context {
     }
 
     /**
-     * @throws OperationNotSupportedException jakarta.naming.Name is not supported
+     * @throws OperationNotSupportedException javax.naming.Name is not supported
      */
     @Override
     public void bind(Name name, Object obj) throws NamingException {
@@ -203,7 +203,7 @@ public class SimpleNamingContext implements Context {
     }
 
     /**
-     * @throws OperationNotSupportedException jakarta.naming.Name is not supported
+     * @throws OperationNotSupportedException javax.naming.Name is not supported
      */
     @Override
     public void unbind(Name name) throws NamingException {
@@ -211,7 +211,7 @@ public class SimpleNamingContext implements Context {
     }
 
     /**
-     * @throws OperationNotSupportedException jakarta.naming.Name is not supported
+     * @throws OperationNotSupportedException javax.naming.Name is not supported
      */
     @Override
     public void rebind(Name name, Object obj) throws NamingException {
@@ -219,7 +219,7 @@ public class SimpleNamingContext implements Context {
     }
 
     /**
-     * @throws OperationNotSupportedException jakarta.naming.Name is not supported
+     * @throws OperationNotSupportedException javax.naming.Name is not supported
      */
     @Override
     public void rename(Name oldName, Name newName) throws NamingException {
@@ -227,7 +227,7 @@ public class SimpleNamingContext implements Context {
     }
 
     /**
-     * @throws OperationNotSupportedException jakarta.naming.Name is not supported
+     * @throws OperationNotSupportedException javax.naming.Name is not supported
      */
     @Override
     public Context createSubcontext(Name name) throws NamingException {
@@ -235,7 +235,7 @@ public class SimpleNamingContext implements Context {
     }
 
     /**
-     * @throws OperationNotSupportedException jakarta.naming.Name is not supported
+     * @throws OperationNotSupportedException javax.naming.Name is not supported
      */
     @Override
     public void destroySubcontext(Name name) throws NamingException {
@@ -243,7 +243,7 @@ public class SimpleNamingContext implements Context {
     }
 
     /**
-     * @throws OperationNotSupportedException jakarta.naming.Name is not supported
+     * @throws OperationNotSupportedException javax.naming.Name is not supported
      */
     @Override
     public String getNameInNamespace() throws NamingException {
@@ -251,7 +251,7 @@ public class SimpleNamingContext implements Context {
     }
 
     /**
-     * @throws OperationNotSupportedException jakarta.naming.Name is not supported
+     * @throws OperationNotSupportedException javax.naming.Name is not supported
      */
     @Override
     public NameParser getNameParser(Name name) throws NamingException {
@@ -259,7 +259,7 @@ public class SimpleNamingContext implements Context {
     }
 
     /**
-     * @throws OperationNotSupportedException jakarta.naming.Name is not supported
+     * @throws OperationNotSupportedException javax.naming.Name is not supported
      */
     @Override
     public NameParser getNameParser(String name) throws NamingException {
@@ -267,7 +267,7 @@ public class SimpleNamingContext implements Context {
     }
 
     /**
-     * @throws OperationNotSupportedException jakarta.naming.Name is not supported
+     * @throws OperationNotSupportedException javax.naming.Name is not supported
      */
     @Override
     public Name composeName(Name name, Name prefix) throws NamingException {
@@ -275,7 +275,7 @@ public class SimpleNamingContext implements Context {
     }
 
     protected OperationNotSupportedException nameUnsupported() {
-        return new OperationNotSupportedException("jakarta.naming.Name is not supported");
+        return new OperationNotSupportedException("javax.naming.Name is not supported");
     }
 
     private abstract static class BaseNamingEnumeration<T> implements NamingEnumeration<T> {

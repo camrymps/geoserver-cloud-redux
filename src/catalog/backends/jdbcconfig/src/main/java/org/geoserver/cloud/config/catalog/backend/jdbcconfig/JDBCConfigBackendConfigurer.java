@@ -68,7 +68,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 import java.util.concurrent.TimeUnit;
 
-import jakarta.sql.DataSource;
+import javax.sql.DataSource;
 
 /**
  * Configure JDBC Config catalog

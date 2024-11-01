@@ -18,7 +18,7 @@ import org.springframework.jdbc.datasource.lookup.JndiDataSourceLookup;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.util.StringUtils;
 
-import jakarta.sql.DataSource;
+import javax.sql.DataSource;
 
 /**
  * @since 1.4

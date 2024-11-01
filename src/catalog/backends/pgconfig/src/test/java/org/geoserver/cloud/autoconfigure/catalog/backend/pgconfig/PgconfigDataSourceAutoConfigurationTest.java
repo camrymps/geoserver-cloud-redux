@@ -24,7 +24,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import jakarta.sql.DataSource;
+import javax.sql.DataSource;
 
 /**
  * Tests for {@link PconfigDataSourceConfiguration}

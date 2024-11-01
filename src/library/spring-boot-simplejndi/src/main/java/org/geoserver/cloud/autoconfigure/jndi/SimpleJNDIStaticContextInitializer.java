@@ -11,8 +11,8 @@ import org.springframework.context.ApplicationContextException;
 import org.springframework.context.ApplicationContextInitializer;
 import org.springframework.context.ConfigurableApplicationContext;
 
-import jakarta.naming.NamingException;
-import jakarta.naming.spi.NamingManager;
+import javax.naming.NamingException;
+import javax.naming.spi.NamingManager;
 
 /**
  * {@link ApplicationContextInitializer} setting {@link SimpleNamingContextBuilder} as the JNDI

@@ -19,7 +19,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.testcontainers.Testcontainers;
 import org.testcontainers.containers.PostgreSQLContainer;
 
-import jakarta.sql.DataSource;
+import javax.sql.DataSource;
 
 /**
  * A {@link Testcontainers test container} based on {@link PostgreSQLContainer} using PostgreSQL 15

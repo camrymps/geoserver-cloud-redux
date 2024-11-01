@@ -13,9 +13,9 @@ import org.springframework.boot.test.context.runner.ApplicationContextRunner;
 
 import java.util.Hashtable;
 
-import jakarta.naming.Context;
-import jakarta.naming.InitialContext;
-import jakarta.naming.spi.NamingManager;
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.spi.NamingManager;
 
 /**
  * @since 1.0

@@ -15,10 +15,10 @@ import org.springframework.util.StringUtils;
 
 import java.util.Map;
 
-import jakarta.naming.Context;
-import jakarta.naming.NamingException;
-import jakarta.naming.spi.NamingManager;
-import jakarta.sql.DataSource;
+import javax.naming.Context;
+import javax.naming.NamingException;
+import javax.naming.spi.NamingManager;
+import javax.sql.DataSource;
 
 /**
  * @since 1.0

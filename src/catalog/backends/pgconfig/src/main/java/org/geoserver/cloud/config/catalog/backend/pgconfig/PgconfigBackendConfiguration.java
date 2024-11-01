@@ -35,7 +35,7 @@ import org.springframework.util.StringUtils;
 
 import java.util.function.Predicate;
 
-import jakarta.sql.DataSource;
+import javax.sql.DataSource;
 
 /**
  * @since 1.4

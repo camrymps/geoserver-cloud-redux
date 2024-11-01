@@ -28,7 +28,7 @@ import org.testcontainers.junit.jupiter.Testcontainers;
 
 import java.io.File;
 
-import jakarta.sql.DataSource;
+import javax.sql.DataSource;
 
 /**
  * @since 1.4

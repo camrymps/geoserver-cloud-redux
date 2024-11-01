@@ -18,7 +18,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import jakarta.sql.DataSource;
+import javax.sql.DataSource;
 
 /**
  * @since 1.0

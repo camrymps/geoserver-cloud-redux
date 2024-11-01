@@ -54,7 +54,7 @@ import java.util.Set;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
 
-import jakarta.sql.DataSource;
+import javax.sql.DataSource;
 
 /**
  * Note by inheriting from {@link ResourceTheoryTest}, this is a Junit 4 test class and must be

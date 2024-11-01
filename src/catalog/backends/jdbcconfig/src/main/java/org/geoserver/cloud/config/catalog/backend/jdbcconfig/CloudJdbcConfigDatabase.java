@@ -13,7 +13,7 @@ import org.geoserver.util.CacheProvider;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import jakarta.sql.DataSource;
+import javax.sql.DataSource;
 
 /**
  * Overrides {@link #save} and {@link #remove} to {@link #clearCache(Info) dispose the internal

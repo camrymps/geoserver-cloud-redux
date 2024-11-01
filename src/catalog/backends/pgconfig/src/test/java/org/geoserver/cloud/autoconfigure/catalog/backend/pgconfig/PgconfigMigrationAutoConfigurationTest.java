@@ -24,7 +24,7 @@ import java.util.TreeMap;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-import jakarta.sql.DataSource;
+import javax.sql.DataSource;
 
 /**
  * @since 1.4

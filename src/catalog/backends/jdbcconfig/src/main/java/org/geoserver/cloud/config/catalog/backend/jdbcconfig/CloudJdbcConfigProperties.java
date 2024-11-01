@@ -22,7 +22,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import jakarta.sql.DataSource;
+import javax.sql.DataSource;
 
 /** Extends {@link JDBCConfigProperties} to not need a {@link JDBCConfigPropertiesFactoryBean} */
 @EqualsAndHashCode(callSuper = true)

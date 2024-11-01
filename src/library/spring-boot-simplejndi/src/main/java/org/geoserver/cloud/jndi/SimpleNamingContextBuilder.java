@@ -8,8 +8,8 @@ import org.springframework.lang.Nullable;
 
 import java.util.Hashtable;
 
-import jakarta.naming.spi.InitialContextFactory;
-import jakarta.naming.spi.InitialContextFactoryBuilder;
+import javax.naming.spi.InitialContextFactory;
+import javax.naming.spi.InitialContextFactoryBuilder;
 
 /**
  * Simple implementation of a JNDI naming context builder.
