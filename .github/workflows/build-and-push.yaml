@@ -1,0 +1,100 @@
+# Builds and pushes docker images on main and tags
+
+name: Build and Push Docker images
+on:
+  push:
+    branches:
+      - main
+      - "release/**"
+    paths:
+      - "Makefile"
+      - "pom.xml"
+      - ".github/workflows/build-and-push.yaml"
+      - "config"
+      - "src/**"
+    tags:
+      - '*'
+# cancel in-progress jobs or runs for the current workflow 
+# see https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/control-the-concurrency-of-workflows-and-jobs#example-only-cancel-in-progress-jobs-or-runs-for-the-current-workflow
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    if: github.repository == 'geoserver/geoserver-cloud'
+    name: Build and Push
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+    - name: Login to Docker Hub
+      uses: docker/login-action@v3
+      with:
+        username: ${{ secrets.DOCKER_HUB_USERNAME }}
+        password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+
+    # Add support for more platforms with QEMU
+    # https://github.com/docker/setup-qemu-action
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v3
+
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v3
+      # https://github.com/docker/setup-buildx-action
+      with:
+        platforms: linux/amd64,linux/arm64
+        # Sets up docker build command as an alias to docker buildx
+        install: true
+
+    - name: Checkout
+      uses: actions/checkout@v4
+      with:
+        submodules: recursive
+
+    - name: Setup Java
+      uses: actions/setup-java@v4
+      with:
+        distribution: 'temurin'
+        java-version: '21'
+        cache: 'maven'
+
+    - name: Build application packages
+      run: |
+        make package
+
+    - name: Build and push base images
+      run: |
+        REPACKAGE=false make build-base-images-multiplatform
+
+    - name: Build and push images for infra services
+      run: |
+        REPACKAGE=false make build-image-infrastructure-multiplatform
+
+    - name: Build and push images for GeoServer services
+      run: |
+        REPACKAGE=false make build-image-geoserver-multiplatform
+
+    - name: Remove project jars from cached repository
+      run: |
+        rm -rf ~/.m2/repository/org/geoserver
+        find ~/.m2/repository -name "*SNAPSHOT*" -type d | xargs rm -rf {}
+
+    - name: Install Cosign
+      if: ${{ startsWith(github.ref, 'refs/tags/') }}
+      uses: sigstore/cosign-installer@v3.5.0
+
+    - name: Sign images
+      if: ${{ startsWith(github.ref, 'refs/tags/') }}
+      env:
+        COSIGN_KEY: ${{ secrets.COSIGN_KEY }}
+        COSIGN_PASSWORD: ${{ secrets.COSIGN_PASSWORD }}
+      run: |
+        make sign-image
+
+    - name: Verify image signatures
+      if: ${{ startsWith(github.ref, 'refs/tags/') }}
+      env:
+        COSIGN_PUB_KEY: ${{ secrets.COSIGN_PUB_KEY }}
+        COSIGN_PASSWORD: ${{ secrets.COSIGN_PASSWORD }}
+      run: |
+        make verify-image

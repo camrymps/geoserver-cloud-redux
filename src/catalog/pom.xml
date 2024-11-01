@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.geoserver.cloud</groupId>
+    <artifactId>gs-cloud</artifactId>
+    <version>${revision}</version>
+  </parent>
+  <groupId>org.geoserver.cloud.catalog</groupId>
+  <artifactId>gs-cloud-catalog</artifactId>
+  <packaging>pom</packaging>
+  <name>Catalog and Config</name>
+  <modules>
+    <module>plugin</module>
+    <module>events</module>
+    <module>cache</module>
+    <module>jackson-bindings</module>
+    <module>event-bus</module>
+    <module>backends</module>
+  </modules>
+  <dependencies>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+</project>

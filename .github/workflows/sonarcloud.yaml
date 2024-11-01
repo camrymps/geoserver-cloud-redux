@@ -1,0 +1,65 @@
+# Builds and pushes docker images on main and tags
+
+name: SonarCloud QA
+on:
+  push:
+    branches:
+      - main
+      - "release/**"
+    paths:
+      - ".github/workflows/sonarcloud.yaml"
+      - "pom.xml"
+      - "src/**"
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+# cancel in-progress jobs or runs for this workflow for the same pr or branch
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build and Analyze
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    # Only analyze with Sonar on non-fork repos:
+    # https://github.community/t/how-to-detect-a-pull-request-from-a-fork/18363/4
+    # if: github.event.pull_request.head.repo.fork != true
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+        submodules: recursive
+        show-progress: 'false'
+    - name: Setup Java
+      uses: actions/setup-java@v4
+      with:
+        distribution: 'temurin'
+        java-version: '21'
+        cache: 'maven'
+    - name: Cache SonarCloud packages
+      uses: actions/cache@v3
+      with:
+        path: ~/.sonar/cache
+        key: ${{ runner.os }}-sonar
+        restore-keys: ${{ runner.os }}-sonar
+
+    - name: Analyze with Sonar
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      run: |
+        ./mvnw verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
+        -Dcoverage \
+        -Dsonar.projectKey=geoserver_geoserver-cloud \
+        -Dsonar.organization=geoserver \
+        -Dmaven.javadoc.skip=true \
+        -ntp \
+        -T1C
+
+    - name: Remove project jars from cached repository
+      run: |
+        rm -rf ~/.m2/repository/org/geoserver
+        find ~/.m2/repository -name "*SNAPSHOT*" -type d | xargs rm -rf {}

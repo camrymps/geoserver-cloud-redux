@@ -1,0 +1,32 @@
+services:
+  discovery:
+    extends:
+      file: templates.yml
+      service: current-platform
+    image: ${REPOSITORY}/geoserver-cloud-discovery:${TAG}
+    build:
+      context: ../src/apps/infrastructure/discovery/
+
+  config:
+    extends:
+      file: templates.yml
+      service: current-platform
+    image: ${REPOSITORY}/geoserver-cloud-config:${TAG}
+    build:
+      context: ../src/apps/infrastructure/config/
+
+  admin:
+    extends:
+      file: templates.yml
+      service: current-platform
+    image: ${REPOSITORY}/geoserver-cloud-admin-server:${TAG}
+    build:
+      context: ../src/apps/infrastructure/admin/
+    
+  gateway:
+    extends:
+      file: templates.yml
+      service: current-platform
+    image: ${REPOSITORY}/geoserver-cloud-gateway:${TAG}
+    build:
+      context: ../src/apps/infrastructure/gateway/

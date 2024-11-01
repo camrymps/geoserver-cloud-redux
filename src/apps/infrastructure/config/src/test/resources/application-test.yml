@@ -1,0 +1,7 @@
+spring:
+  main.banner-mode: off
+  application.name: config-service
+  cloud.config.server.native.searchLocations: classpath:/config
+eureka.client.enabled: false
+logging.level:
+  root: warn

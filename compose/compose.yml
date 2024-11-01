@@ -1,0 +1,192 @@
+include:
+  - ./infra.yml
+  
+volumes:
+  geowebcache_data:
+  config:
+    driver_opts:
+      type: none
+      o: bind
+      device: $PWD/../config
+    driver: local
+
+x-gs-dependencies: &gs-dependencies
+  rabbitmq:
+    condition: service_healthy
+    required: true
+  discovery:
+    condition: service_healthy
+    required: true
+  acl:
+    condition: service_healthy
+    required: true
+  postgis:
+    condition: service_started
+    required: true
+
+services:
+
+  acl:
+    image: ${ACL_REPOSITORY}/geoserver-acl:${ACL_TAG}
+    environment:
+      # Override default values in the container's /etc/geoserver/acl-service.yml 
+      - PG_HOST=acldb
+      - PG_PORT=5432
+      - PG_DB=acl
+      - PG_SCHEMA=acl
+      - PG_USERNAME=acl
+      - PG_PASSWORD=acls3cr3t
+      - 'ACL_USERS_ADMIN_PASSWORD={noop}s3cr3t'
+      - 'ACL_USERS_GEOSERVER_PASSWORD={noop}s3cr3t'
+      - GEOSERVER_BUS_ENABLED=true
+      - RABBITMQ_HOST=rabbitmq
+      - RABBITMQ_PORT=5672
+      - RABBITMQ_USER=guest
+      - RABBITMQ_PASSWORD=guest
+      #- RABBITMQ_VHOST=""
+      #- SPRING_PROFILES_ACTIVE=logging_debug,logging_debug_events
+    depends_on:
+      acldb:
+        condition: service_started
+        required: true
+      rabbitmq:
+        condition: service_healthy
+        required: true
+    deploy:
+      resources:
+        limits:
+          cpus: '4.0'
+          memory: 2G
+
+  # Spring Cloud Config service, provides centralized configuration to all
+  # microservices. Being a Discovery First Bootstrap configuration, it'll
+  # register itself with the Eureka discovery service and can be scaled
+  config:
+    image: ${REPOSITORY}/geoserver-cloud-config:${TAG}
+    user: ${GS_USER}
+    environment:
+      JAVA_OPTS: "${JAVA_OPTS_CONFIG}"
+      SPRING_PROFILES_ACTIVE: "${CONFIG_SERVER_DEFAULT_PROFILES}"
+  #  restart: unless-stopped
+    volumes:
+      # override with the local copy to test config changes during development
+      - config:/etc/geoserver
+    ports:
+      # not needed in production, exposed for local development
+      - 8888:8080
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 256M
+
+  # Eureka service discovery. This is a Discovery First Bootstrap configuration.
+  # The discovery service is the only fixed entry point.
+  # Browse to http://localhost:8761 to check all services are registered.
+  discovery:
+    image: ${REPOSITORY}/geoserver-cloud-discovery:${TAG}
+    user: ${GS_USER}
+    environment:
+      JAVA_OPTS: "${JAVA_OPTS_DISCOVERY}"
+      SPRING_PROFILES_ACTIVE: "${DISCOVERY_SERVER_DEFAULT_PROFILES}"
+    ports:
+      - 8761:8761 # for development, so services can be run from localhost and find the discovery service running on docker
+    restart: unless-stopped
+    depends_on:
+      - config
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 512M
+    
+  # Application facade, provides a single entry point routing to all
+  # microservices (e.g. http://localhost:9090/geoserver/wms, http://localhost:9090/geoserver/wfs, etc)
+  gateway:
+    image: ${REPOSITORY}/geoserver-cloud-gateway:${TAG}
+    user: ${GS_USER}
+    depends_on:
+      discovery:
+        condition: service_healthy
+    environment:
+      JAVA_OPTS: "${JAVA_OPTS_GATEWAY}"
+      # eat our own dogfood and set a base path
+      GEOSERVER_BASE_PATH: ${GEOSERVER_BASE_PATH}
+      SPRING_PROFILES_ACTIVE: "${GATEWAY_DEFAULT_PROFILES}"
+      GATEWAY_SHARED_AUTH: "${GATEWAY_SHARED_AUTH}" #same as in gstemplate
+    ports:
+      - ${GATEWAY_PORT}:8080
+    deploy:
+      resources:
+        limits:
+          cpus: '4.0'
+          memory: 2G
+
+  wfs:
+    extends:
+      file: templates.yml
+      service: gstemplate
+    image: ${REPOSITORY}/geoserver-cloud-wfs:${TAG}
+    environment:
+      JAVA_OPTS: "${JAVA_OPTS_WFS}"
+    depends_on: *gs-dependencies
+
+  wms:
+    image: ${REPOSITORY}/geoserver-cloud-wms:${TAG}
+    extends:
+      file: templates.yml
+      service: gstemplate
+    environment:
+      JAVA_OPTS: "${JAVA_OPTS_WMS}"
+    depends_on: *gs-dependencies
+
+  wcs:
+    extends:
+      file: templates.yml
+      service: gstemplate
+    image: ${REPOSITORY}/geoserver-cloud-wcs:${TAG}
+    environment:
+      JAVA_OPTS: "${JAVA_OPTS_WCS}"
+    depends_on: *gs-dependencies
+
+  wps:
+    extends:
+      file: templates.yml
+      service: gstemplate
+    image: ${REPOSITORY}/geoserver-cloud-wps:${TAG}
+    environment:
+      JAVA_OPTS: "${JAVA_OPTS_WPS}"
+    depends_on: *gs-dependencies
+
+  gwc:
+    extends:
+      file: templates.yml
+      service: gstemplate
+    image: ${REPOSITORY}/geoserver-cloud-gwc:${TAG}
+    environment:
+      JAVA_OPTS: "${JAVA_OPTS_GWC}"
+    depends_on: *gs-dependencies
+    deploy:
+      resources:
+        limits:
+          cpus: '4.0'
+          memory: 2G
+
+  rest:
+    extends:
+      file: templates.yml
+      service: gstemplate
+    image: ${REPOSITORY}/geoserver-cloud-rest:${TAG}
+    environment:
+      JAVA_OPTS: "${JAVA_OPTS_REST}"
+    depends_on: *gs-dependencies
+
+  webui:
+    extends:
+      file: templates.yml
+      service: gstemplate
+    image: ${REPOSITORY}/geoserver-cloud-webui:${TAG}
+    environment:
+      JAVA_OPTS: "${JAVA_OPTS_WEBUI}"
+    depends_on: *gs-dependencies
+

@@ -1,0 +1,121 @@
+name: gscloud_dev_jdbcconfig
+
+volumes:
+  jdbcconfig_data: # volume for postgresql data, used to store the geoserver config through jdbcconfig
+  datadir:
+
+#
+# Configures all geoserver services to use the postgresql database server with jdbcconfig as catalog backend.
+# Run with `docker compose -f compose.yml -f catalog-jdbcconfig.yml up -d`
+#
+
+services:
+  init-sample-data:
+    image: alpine:3.18.4
+    user: ${GS_USER}
+    command: sh -c "cd /opt/app/data_directory; if [ ! -f global.xml ]; then tar xfvz /tmp/datadir.tgz; fi"
+    volumes:
+      - datadir:/opt/app/data_directory
+      - ./catalog-datadir.tgz:/tmp/datadir.tgz
+
+  database:
+    # be sure geoserver.backend.jdbcconfig.initdb is set to true in application.yml at lease for the first app run
+    image: postgres:13-alpine
+    environment:
+      POSTGRES_DB: "${JDBCCONFIG_DBNAME}"
+      POSTGRES_USER: "${JDBCCONFIG_USERNAME}"
+      POSTGRES_PASSWORD: "${JDBCCONFIG_PASSWORD}"
+    ports:
+      - 54321:5432
+    volumes:
+      - jdbcconfig_data:/var/lib/postgresql/data
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 1G
+
+
+  wfs:
+    environment:
+      SPRING_PROFILES_ACTIVE: "${GEOSERVER_DEFAULT_PROFILES},jdbcconfig"
+      JDBCCONFIG_URL: "${JDBCCONFIG_URL}"
+      JDBCCONFIG_USERNAME: "${JDBCCONFIG_USERNAME}"
+      JDBCCONFIG_PASSWORD: "${JDBCCONFIG_PASSWORD}"
+    volumes:
+      - datadir:/opt/app/data_directory
+    depends_on:
+      init-sample-data:
+        condition: service_completed_successfully
+      database:
+        condition: service_started
+
+  wms:
+    environment:
+      SPRING_PROFILES_ACTIVE: "${GEOSERVER_DEFAULT_PROFILES},jdbcconfig"
+      JDBCCONFIG_URL: "${JDBCCONFIG_URL}"
+      JDBCCONFIG_USERNAME: "${JDBCCONFIG_USERNAME}"
+      JDBCCONFIG_PASSWORD: "${JDBCCONFIG_PASSWORD}"
+    volumes:
+      - datadir:/opt/app/data_directory
+    depends_on:
+      init-sample-data:
+        condition: service_completed_successfully
+      database:
+        condition: service_started
+
+  wcs:
+    environment:
+      SPRING_PROFILES_ACTIVE: "${GEOSERVER_DEFAULT_PROFILES},jdbcconfig"
+      JDBCCONFIG_URL: "${JDBCCONFIG_URL}"
+      JDBCCONFIG_USERNAME: "${JDBCCONFIG_USERNAME}"
+      JDBCCONFIG_PASSWORD: "${JDBCCONFIG_PASSWORD}"
+    volumes:
+      - datadir:/opt/app/data_directory
+    depends_on:
+      init-sample-data:
+        condition: service_completed_successfully
+      database:
+        condition: service_started
+
+  rest:
+    environment:
+      SPRING_PROFILES_ACTIVE: "${GEOSERVER_DEFAULT_PROFILES},jdbcconfig"
+      JDBCCONFIG_URL: "${JDBCCONFIG_URL}"
+      JDBCCONFIG_USERNAME: "${JDBCCONFIG_USERNAME}"
+      JDBCCONFIG_PASSWORD: "${JDBCCONFIG_PASSWORD}"
+    volumes:
+      - datadir:/opt/app/data_directory
+    depends_on:
+      init-sample-data:
+        condition: service_completed_successfully
+      database:
+        condition: service_started
+
+  webui:
+    environment:
+      SPRING_PROFILES_ACTIVE: "${GEOSERVER_DEFAULT_PROFILES},jdbcconfig"
+      JDBCCONFIG_URL: "${JDBCCONFIG_URL}"
+      JDBCCONFIG_USERNAME: "${JDBCCONFIG_USERNAME}"
+      JDBCCONFIG_PASSWORD: "${JDBCCONFIG_PASSWORD}"
+    volumes:
+      - datadir:/opt/app/data_directory
+    depends_on:
+      init-sample-data:
+        condition: service_completed_successfully
+      database:
+        condition: service_started
+
+  gwc:
+    environment:
+      SPRING_PROFILES_ACTIVE: "${GEOSERVER_DEFAULT_PROFILES},jdbcconfig"
+      JDBCCONFIG_URL: "${JDBCCONFIG_URL}"
+      JDBCCONFIG_USERNAME: "${JDBCCONFIG_USERNAME}"
+      JDBCCONFIG_PASSWORD: "${JDBCCONFIG_PASSWORD}"
+    volumes:
+      - datadir:/opt/app/data_directory
+    depends_on:
+      init-sample-data:
+        condition: service_completed_successfully
+      database:
+        condition: service_started
