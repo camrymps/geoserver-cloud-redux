@@ -18,10 +18,15 @@
       <artifactId>spring-webmvc</artifactId>
       <optional>true</optional>
     </dependency>
-    <dependency>
-      <!-- for ServiceIdFilterAutoConfiguration to engage if present at runtime -->
+    <!-- <dependency>
       <groupId>javax.servlet</groupId>
       <artifactId>javax.servlet-api</artifactId>
+      <optional>true</optional>
+    </dependency> -->
+    <dependency>
+      <!-- for ServiceIdFilterAutoConfiguration to engage if present at runtime -->
+      <groupId>jakarta.servlet</groupId>
+      <artifactId>jakarta.servlet-api</artifactId>
       <optional>true</optional>
     </dependency>
   </dependencies>
