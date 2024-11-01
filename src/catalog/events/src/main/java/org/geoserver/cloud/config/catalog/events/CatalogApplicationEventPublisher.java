@@ -48,8 +48,8 @@ import java.util.UUID;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
-import javax.annotation.Nullable;
-import javax.annotation.PostConstruct;
+import jakarta.annotation.Nullable;
+import jakarta.annotation.PostConstruct;
 
 /**
  * Adapts the listener pattern used by {@link Catalog#addListener Catalog} and {@link
