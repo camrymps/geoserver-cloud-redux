@@ -49,7 +49,7 @@ import java.io.IOException;
 import java.nio.channels.Channels;
 import java.util.LinkedHashMap;
 
-import jakarta.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  * Autoconfiguration to integrate GWC with GeoServer's WMS

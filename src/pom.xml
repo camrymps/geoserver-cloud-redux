@@ -88,13 +88,13 @@
         <scope>import</scope>
       </dependency>
       <!-- Added Jakarta packages -->
-      <dependency>
-        <groupId>jakarta.servlet</groupId>
-        <artifactId>jakarta.servlet-api</artifactId>
+      <!-- <dependency>
+        <groupId>javax.servlet</groupId>
+        <artifactId>javax.servlet-api</artifactId>
         <version>${jakarta.version}</version>
         <type>pom</type>
         <scope>import</scope>
-      </dependency>
+      </dependency> -->
       <dependency>
         <groupId>jakarta.validation</groupId>
         <artifactId>jakarta.validation-api</artifactId>

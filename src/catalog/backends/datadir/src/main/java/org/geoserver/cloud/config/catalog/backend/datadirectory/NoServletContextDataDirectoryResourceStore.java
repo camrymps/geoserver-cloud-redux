@@ -12,7 +12,7 @@ import org.geoserver.platform.resource.FileSystemResourceStore;
 import java.io.File;
 import java.util.Objects;
 
-import jakarta.servlet.ServletContext;
+import javax.servlet.ServletContext;
 
 /**
  * {@link DataDirectoryResourceStore} that works both for webmvc (servlet) and reactive (WebFlux)

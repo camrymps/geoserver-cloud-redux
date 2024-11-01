@@ -17,7 +17,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.context.request.RequestContextListener;
 
-import jakarta.servlet.Filter;
+import javax.servlet.Filter;
 
 @Configuration
 public class GeoServerServletContextConfiguration {

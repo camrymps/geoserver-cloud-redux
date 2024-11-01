@@ -13,8 +13,8 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
-import jakarta.servlet.ServletContext;
-import jakarta.servlet.ServletContextEvent;
+import javax.servlet.ServletContext;
+import javax.servlet.ServletContextEvent;
 
 /**
  * {@link ApplicationContextInitializer} replacing upstream's {@link GeoserverInitStartupListener},
