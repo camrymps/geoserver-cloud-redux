@@ -13,7 +13,7 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Import;
 
-import jakarta.annotation.PostConstruct;
+import javax.annotation.PostConstruct;
 
 /**
  * @since 1.0

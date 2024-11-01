@@ -25,7 +25,7 @@ import org.springframework.util.StringUtils;
 
 import java.util.List;
 
-import jakarta.annotation.PostConstruct;
+import javax.annotation.PostConstruct;
 
 /**
  * {@link AuthenticationProvider} that allows to set an administrator account (username and

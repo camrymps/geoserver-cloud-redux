@@ -23,7 +23,7 @@ import org.geotools.api.filter.sort.SortBy;
 
 import java.util.List;
 
-import jakarta.annotation.Nullable;
+import javax.annotation.Nullable;
 
 /**
  * {@link CatalogFacade} which forwards all its method calls to another {@code CatalogFacade} aiding

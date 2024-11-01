@@ -16,7 +16,7 @@ import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 
-import jakarta.annotation.PostConstruct;
+import javax.annotation.PostConstruct;
 
 @AutoConfiguration
 @ConditionalOnWebUIEnabled

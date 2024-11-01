@@ -25,7 +25,7 @@ import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
-import jakarta.annotation.PostConstruct;
+import javax.annotation.PostConstruct;
 
 /**
  * Loads geoserver security bean definitions from {@code

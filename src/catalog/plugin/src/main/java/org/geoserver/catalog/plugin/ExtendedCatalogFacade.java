@@ -30,7 +30,7 @@ import java.util.Optional;
 import java.util.function.Consumer;
 import java.util.stream.Stream;
 
-import jakarta.annotation.Nullable;
+import javax.annotation.Nullable;
 
 /**
  * {@link CatalogFacade} with additional methods

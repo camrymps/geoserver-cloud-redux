@@ -36,7 +36,7 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Consumer;
 
-import jakarta.annotation.PostConstruct;
+import javax.annotation.PostConstruct;
 import javax.sql.DataSource;
 
 /**

@@ -26,7 +26,7 @@ import org.springframework.security.web.authentication.preauth.PreAuthenticatedA
 
 import java.util.Optional;
 
-import jakarta.annotation.PostConstruct;
+import javax.annotation.PostConstruct;
 
 /**
  * {@link AutoConfiguration @AutoConfiguration} to enable sharing the webui form-based

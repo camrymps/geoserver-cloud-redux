@@ -18,7 +18,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.context.event.EventListener;
 
-import jakarta.annotation.PostConstruct;
+import javax.annotation.PostConstruct;
 
 @AutoConfiguration(after = GeoServerBackendAutoConfiguration.class)
 @Import({

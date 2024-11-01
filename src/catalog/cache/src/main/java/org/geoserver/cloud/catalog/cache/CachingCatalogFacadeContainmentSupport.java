@@ -36,7 +36,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.concurrent.Callable;
 
-import jakarta.annotation.ParametersAreNonnullByDefault;
+import javax.annotation.ParametersAreNonnullByDefault;
 
 /**
  * @since 1.7

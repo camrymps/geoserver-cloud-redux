@@ -18,7 +18,7 @@ import org.geoserver.catalog.event.CatalogModifyEvent;
 import org.geoserver.catalog.event.CatalogPostModifyEvent;
 import org.geoserver.catalog.event.CatalogRemoveEvent;
 
-import jakarta.annotation.Nullable;
+import javax.annotation.Nullable;
 
 class MetricsCatalogListener implements CatalogListener {
 

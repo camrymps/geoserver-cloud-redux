@@ -6,7 +6,7 @@ package org.geoserver.cloud.autoconfigure.web.core;
 
 import lombok.extern.slf4j.Slf4j;
 
-import jakarta.annotation.PostConstruct;
+import javax.annotation.PostConstruct;
 
 @Slf4j(topic = "org.geoserver.cloud.autoconfigure.web")
 public abstract class AbstractWebUIAutoConfiguration {
