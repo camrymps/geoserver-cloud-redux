@@ -60,7 +60,7 @@
         <artifactId>jakarta.servlet-api</artifactId>
         <version>6.1.0</version>
         <type>pom</type>
-        <scope>import</scope>
+        <!-- <scope>import</scope> -->
       </dependency>
       <!--<dependency>
         <groupId>jakarta.validation</groupId>
