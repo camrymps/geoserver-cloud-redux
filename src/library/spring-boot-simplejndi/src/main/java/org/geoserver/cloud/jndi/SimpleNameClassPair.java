@@ -9,7 +9,7 @@ import java.util.Objects;
 /**
  * @since 1.0
  */
-class SimpleNameClassPair extends javax.naming.NameClassPair {
+class SimpleNameClassPair extends jakarta.naming.NameClassPair {
 
     private static final long serialVersionUID = 1L;
 
@@ -19,7 +19,7 @@ class SimpleNameClassPair extends javax.naming.NameClassPair {
 
     @Override
     public boolean equals(Object o) {
-        if (o instanceof javax.naming.NameClassPair p) {
+        if (o instanceof jakarta.naming.NameClassPair p) {
             return Objects.equals(getName(), p.getName())
                     && Objects.equals(getClassName(), p.getClassName());
         }

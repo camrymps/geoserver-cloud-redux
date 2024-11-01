@@ -11,7 +11,7 @@ import org.geoserver.platform.resource.FileLockProvider;
 
 import java.io.File;
 
-import javax.servlet.ServletContext;
+import jakarta.servlet.ServletContext;
 
 /**
  * {@link FileLockProvider} that expects the data directory file at its constructor, overriding

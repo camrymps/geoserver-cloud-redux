@@ -33,7 +33,7 @@ import java.util.function.Supplier;
 import java.util.function.UnaryOperator;
 import java.util.stream.Stream;
 
-import javax.sql.DataSource;
+import jakarta.sql.DataSource;
 
 /**
  * A {@link TileLayerConfiguration} is like the GeoServer {@link Catalog} for {@link TileLayer};

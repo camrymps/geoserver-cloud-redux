@@ -36,8 +36,8 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Consumer;
 
-import javax.annotation.PostConstruct;
-import javax.sql.DataSource;
+import jakarta.annotation.PostConstruct;
+import jakarta.sql.DataSource;
 
 /**
  * {@link AutoConfiguration @AutoConfiguration} to set up the GeoServer {@link TileLayerCatalog}

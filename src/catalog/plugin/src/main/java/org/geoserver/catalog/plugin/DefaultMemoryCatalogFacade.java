@@ -42,7 +42,7 @@ import java.rmi.server.UID;
 import java.util.LinkedHashSet;
 import java.util.List;
 
-import javax.annotation.Nullable;
+import jakarta.annotation.Nullable;
 
 /**
  * Default catalog facade implementation using in-memory {@link CatalogRepository repositories} to

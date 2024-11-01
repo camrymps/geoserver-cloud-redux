@@ -23,7 +23,7 @@ import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.context.event.EventListener;
 
-import javax.annotation.Nullable;
+import jakarta.annotation.Nullable;
 
 /** */
 @CacheConfig(cacheNames = CachingGeoServerFacade.CACHE_NAME)

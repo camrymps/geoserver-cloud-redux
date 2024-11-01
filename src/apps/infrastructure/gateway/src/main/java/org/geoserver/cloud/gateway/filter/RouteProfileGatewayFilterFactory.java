@@ -26,7 +26,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import javax.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotEmpty;
 
 /** Allows to enable routes only if a given spring profile is enabled */
 public class RouteProfileGatewayFilterFactory

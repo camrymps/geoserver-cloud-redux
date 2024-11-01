@@ -11,7 +11,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.flywaydb.core.Flyway;
 import org.flywaydb.core.api.output.MigrateResult;
 
-import javax.sql.DataSource;
+import jakarta.sql.DataSource;
 
 /**
  * @since 1.4

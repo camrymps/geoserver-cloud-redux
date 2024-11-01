@@ -15,11 +15,11 @@ import org.springframework.core.env.Environment;
 
 import java.io.IOException;
 
-import javax.servlet.FilterChain;
-import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.FilterChain;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.ServletRequest;
+import jakarta.servlet.ServletResponse;
+import jakarta.servlet.http.HttpServletResponse;
 
 /**
  * Auto configuration to log basic application info at {@link ApplicationReadyEvent app startup}
@@ -31,14 +31,14 @@ import javax.servlet.http.HttpServletResponse;
  */
 @Configuration(proxyBeanMethods = false)
 @ConditionalOnWebApplication
-@ConditionalOnClass(javax.servlet.Filter.class)
+@ConditionalOnClass(jakarta.servlet.Filter.class)
 @ConditionalOnProperty(
         name = "geoserver.debug.instanceId",
         havingValue = "true",
         matchIfMissing = false)
 public class ServiceIdFilterAutoConfiguration {
 
-    static class ServiceIdFilter implements javax.servlet.Filter {
+    static class ServiceIdFilter implements jakarta.servlet.Filter {
 
         @Value("${info.instance-id:}")
         String instanceId;

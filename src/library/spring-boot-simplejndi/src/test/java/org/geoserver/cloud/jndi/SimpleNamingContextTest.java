@@ -16,12 +16,12 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import java.util.Collections;
 import java.util.Set;
 
-import javax.naming.Context;
-import javax.naming.NameClassPair;
-import javax.naming.NameNotFoundException;
-import javax.naming.NamingEnumeration;
-import javax.naming.NamingException;
-import javax.sql.DataSource;
+import jakarta.naming.Context;
+import jakarta.naming.NameClassPair;
+import jakarta.naming.NameNotFoundException;
+import jakarta.naming.NamingEnumeration;
+import jakarta.naming.NamingException;
+import jakarta.sql.DataSource;
 
 /**
  * Test suite for {@link SimpleNamingContext}

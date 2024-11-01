@@ -13,11 +13,11 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Hashtable;
 
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
-import javax.naming.NoInitialContextException;
-import javax.naming.spi.NamingManager;
+import jakarta.naming.Context;
+import jakarta.naming.InitialContext;
+import jakarta.naming.NamingException;
+import jakarta.naming.NoInitialContextException;
+import jakarta.naming.spi.NamingManager;
 
 /**
  * Test suite for {@link SimpleNamingContextBuilder}

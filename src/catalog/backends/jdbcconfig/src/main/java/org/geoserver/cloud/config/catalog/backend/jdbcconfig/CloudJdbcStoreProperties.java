@@ -22,7 +22,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import javax.sql.DataSource;
+import jakarta.sql.DataSource;
 
 /**
  * Extends {@link JDBCResourceStoreProperties} to not need a {@link

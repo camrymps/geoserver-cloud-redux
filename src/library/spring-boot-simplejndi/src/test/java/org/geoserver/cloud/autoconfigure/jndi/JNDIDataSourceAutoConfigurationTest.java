@@ -13,8 +13,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.autoconfigure.AutoConfigurations;
 import org.springframework.boot.test.context.runner.ApplicationContextRunner;
 
-import javax.naming.Context;
-import javax.naming.spi.NamingManager;
+import jakarta.naming.Context;
+import jakarta.naming.spi.NamingManager;
 
 /**
  * @since 1.0

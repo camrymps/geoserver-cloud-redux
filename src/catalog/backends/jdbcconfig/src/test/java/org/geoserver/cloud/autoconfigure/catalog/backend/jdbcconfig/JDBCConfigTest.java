@@ -19,7 +19,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.ActiveProfiles;
 
-import javax.sql.DataSource;
+import jakarta.sql.DataSource;
 
 /**
  * Closes the {@link DataSource} after each test run, otherwise, being an in-memory H2 db (as

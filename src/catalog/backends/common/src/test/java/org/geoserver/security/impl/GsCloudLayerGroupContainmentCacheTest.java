@@ -60,7 +60,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import javax.xml.namespace.QName;
+import jakarta.xml.namespace.QName;
 
 /**
  * Tests {@link LayerGroupContainmentCache} udpates in face of catalog setup and changes

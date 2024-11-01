@@ -6,9 +6,9 @@ package org.geoserver.cloud.jndi;
 
 import java.util.Hashtable;
 
-import javax.naming.Context;
-import javax.naming.NamingException;
-import javax.naming.spi.InitialContextFactory;
+import jakarta.naming.Context;
+import jakarta.naming.NamingException;
+import jakarta.naming.spi.InitialContextFactory;
 
 /**
  * Simple implementation of a JNDI naming context factory.
