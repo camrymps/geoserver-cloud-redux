@@ -40,7 +40,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.Set;
 
-import javax.annotation.PostConstruct;
+import jakarta.annotation.PostConstruct;
 
 /**
  * Extends the parallel {@link org.geoserver.catalog.datadir.DataDirectoryGeoServerLoader} to

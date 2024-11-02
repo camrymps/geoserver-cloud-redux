@@ -27,7 +27,7 @@ import org.geoserver.platform.config.UpdateSequence;
 import java.io.IOException;
 import java.util.Set;
 
-import javax.annotation.PostConstruct;
+import jakarta.annotation.PostConstruct;
 
 /**
  * {@link Catalog} and {@link GeoServer config} loader for the data-directory backend, loads the
