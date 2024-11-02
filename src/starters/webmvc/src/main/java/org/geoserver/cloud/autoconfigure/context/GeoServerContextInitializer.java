@@ -13,7 +13,9 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
+import jakarta.servlet.Filter; // Added
 import jakarta.servlet.ServletContext;
+import jakarta.servlet.ServletContextListener; // Added
 import jakarta.servlet.ServletContextEvent;
 
 /**
