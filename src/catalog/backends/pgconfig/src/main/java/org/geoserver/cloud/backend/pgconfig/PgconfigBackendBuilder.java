@@ -16,7 +16,7 @@ import org.geoserver.cloud.backend.pgconfig.config.PgconfigGeoServerFacade;
 import org.geoserver.config.plugin.GeoServerImpl;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-import jakarta.sql.DataSource;
+import javax.sql.DataSource;
 
 /**
  * @since 1.4

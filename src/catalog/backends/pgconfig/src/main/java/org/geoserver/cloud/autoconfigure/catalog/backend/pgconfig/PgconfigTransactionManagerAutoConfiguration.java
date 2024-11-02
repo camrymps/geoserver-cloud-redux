@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import jakarta.sql.DataSource;
+import javax.sql.DataSource;
 
 @AutoConfiguration(after = PgconfigDataSourceAutoConfiguration.class)
 @ConditionalOnPgconfigBackendEnabled
