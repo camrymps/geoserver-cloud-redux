@@ -7,7 +7,7 @@ package org.geoserver.cloud.backend.pgconfig.resource;
 import static org.springframework.transaction.annotation.Propagation.REQUIRED;
 import static org.springframework.transaction.annotation.Propagation.SUPPORTS;
 
-import com.google.guava.Preconditions;
+import dev.mccue.guava.base.Preconditions;
 
 import lombok.Getter;
 import lombok.NonNull;

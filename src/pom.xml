@@ -56,9 +56,9 @@
     <!-- Note dependencies added purely to satisfy the dependencyConvergence maven-enforcer-plugin rule are in the dependencyConvergence maven profile -->
     <dependencies>
       <dependency>
-        <groupId>com.google.guava</groupId>
-        <artifactId>guava</artifactId>
-        <version>33.3.1-jre</version>
+          <groupId>dev.mccue</groupId>
+          <artifactId>guava-base</artifactId>
+          <version>33.2.0</version>
       </dependency>
       <!-- Added Jakarta packages -->
       <dependency>
@@ -1089,12 +1089,12 @@
             <version>1.20.0</version>
           </dependency>
           <dependency>
-            <groupId>com.google.guava</groupId>
+            <groupId>dev.mccue.guava.base</groupId>
             <artifactId>guava</artifactId>
             <version>33.2.1-jre</version>
           </dependency>
           <dependency>
-            <groupId>com.google.guava</groupId>
+            <groupId>dev.mccue.guava.base</groupId>
             <artifactId>failureaccess</artifactId>
             <version>1.0.2</version>
           </dependency>

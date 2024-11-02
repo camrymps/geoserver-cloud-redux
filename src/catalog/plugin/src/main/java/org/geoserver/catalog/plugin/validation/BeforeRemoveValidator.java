@@ -4,7 +4,7 @@
  */
 package org.geoserver.catalog.plugin.validation;
 
-import static com.google.guava.Preconditions.checkArgument;
+import static dev.mccue.guava.base.Preconditions.checkArgument;
 
 import static org.geoserver.catalog.Predicates.acceptAll;
 import static org.geoserver.catalog.Predicates.equal;

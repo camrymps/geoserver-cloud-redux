@@ -4,8 +4,8 @@
  */
 package org.geoserver.cloud.gwc.repository;
 
-import static com.google.guava.Preconditions.checkArgument;
-import static com.google.guava.Preconditions.checkNotNull;
+import static dev.mccue.guava.base.Preconditions.checkArgument;
+import static dev.mccue.guava.base.Preconditions.checkNotNull;
 
 import com.google.common.cache.LoadingCache;
 

@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertInstanceOf;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import com.google.guava.Throwables;
+import dev.mccue.guava.base.Throwables;
 
 import org.geoserver.cloud.autoconfigure.gwc.GeoWebCacheContextRunner;
 import org.geoserver.cloud.gwc.repository.CloudDefaultStorageFinder;
