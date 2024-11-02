@@ -9,7 +9,7 @@ import static org.geoserver.catalog.Predicates.and;
 import static org.geoserver.catalog.Predicates.equal;
 import static org.geoserver.catalog.Predicates.isNull;
 
-import com.google.common.base.Preconditions;
+import com.google.guava.Preconditions;
 
 import org.geoserver.catalog.Info;
 import org.geoserver.catalog.WorkspaceInfo;
@@ -32,8 +32,8 @@ import java.util.Collection;
 import java.util.List;
 import java.util.logging.Logger;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 /**
  * Copy of {@link JDBCGeoServerFacade} that does not try reinitialize logging, can't extend it

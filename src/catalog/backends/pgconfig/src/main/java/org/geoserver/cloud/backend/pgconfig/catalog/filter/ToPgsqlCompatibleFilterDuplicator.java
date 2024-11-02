@@ -29,7 +29,7 @@ import java.util.Set;
 import java.util.function.BiFunction;
 import java.util.function.Function;
 
-import javax.annotation.Nullable;
+import jakarta.annotation.Nullable;
 
 /**
  * Duplicates a supported filter making it directly translatable to SQL taking care of subtleties

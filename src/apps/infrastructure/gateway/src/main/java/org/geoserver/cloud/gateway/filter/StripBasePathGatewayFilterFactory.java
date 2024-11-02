@@ -4,7 +4,7 @@
  */
 package org.geoserver.cloud.gateway.filter;
 
-import static com.google.common.base.Preconditions.checkArgument;
+import static com.google.guava.Preconditions.checkArgument;
 
 import lombok.Data;
 

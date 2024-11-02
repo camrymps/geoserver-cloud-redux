@@ -4,7 +4,7 @@
  */
 package org.geoserver.cloud.gwc.backend.pgconfig;
 
-import static com.google.common.base.Preconditions.checkNotNull;
+import static com.google.guava.Preconditions.checkNotNull;
 
 import lombok.Generated;
 

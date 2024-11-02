@@ -33,7 +33,7 @@ import java.util.Objects;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
 
-import javax.annotation.Nullable;
+import jakarta.annotation.Nullable;
 
 /** Copy of package private {@code org.geoserver.catalog.impl.IsolatedCatalogFacade} */
 public final class IsolatedCatalogFacade extends ForwardingExtendedCatalogFacade {

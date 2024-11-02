@@ -5,7 +5,7 @@
 package org.geoserver.cloud.catalog.cache;
 
 import com.github.benmanes.caffeine.cache.Cache;
-import com.google.common.base.Stopwatch;
+import com.google.guava.Stopwatch;
 
 import lombok.Getter;
 import lombok.NonNull;

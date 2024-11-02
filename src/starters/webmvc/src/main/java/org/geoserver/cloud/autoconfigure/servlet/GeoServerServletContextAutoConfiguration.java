@@ -12,7 +12,7 @@ import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Import;
 
-import javax.annotation.PostConstruct;
+import jakarta.annotation.PostConstruct;
 
 @AutoConfiguration(after = GeoServerWebMvcMainAutoConfiguration.class)
 @ConditionalOnProperty(

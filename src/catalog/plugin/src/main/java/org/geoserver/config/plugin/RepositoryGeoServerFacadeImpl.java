@@ -34,7 +34,7 @@ import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import javax.annotation.Nullable;
+import jakarta.annotation.Nullable;
 
 /**
  * Default implementation of {@link GeoServerFacade} backed by a pluggable {@link ConfigRepository}

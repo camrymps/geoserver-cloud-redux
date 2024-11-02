@@ -13,7 +13,7 @@ import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.cloud.bus.BusAutoConfiguration;
 import org.springframework.context.annotation.Import;
 
-import javax.annotation.PostConstruct;
+import jakarta.annotation.PostConstruct;
 
 /** Log a message if spring-cloud-bus is explicitly disables */
 @AutoConfiguration

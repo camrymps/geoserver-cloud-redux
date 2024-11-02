@@ -24,7 +24,7 @@ import org.geoserver.platform.resource.Resource.Lock;
 import java.io.IOException;
 import java.util.List;
 
-import javax.annotation.PostConstruct;
+import jakarta.annotation.PostConstruct;
 
 /**
  * {@link Catalog} and {@link GeoServer config} loader for the jdbcconfig backend, loads the
