@@ -4,8 +4,8 @@
  */
 package org.geoserver.cloud.config.catalog.backend.jdbcconfig;
 
-import dev.mccue.guava.base.Optional;
-import dev.mccue.guava.base.Preconditions;
+import dev.mccue.guava.Optional;
+import dev.mccue.guava.Preconditions;
 
 import lombok.EqualsAndHashCode;
 

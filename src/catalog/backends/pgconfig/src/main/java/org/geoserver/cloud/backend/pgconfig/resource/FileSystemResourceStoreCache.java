@@ -1,6 +1,6 @@
 package org.geoserver.cloud.backend.pgconfig.resource;
 
-import dev.mccue.guava.base.Preconditions;
+import dev.mccue.guava.Preconditions;
 
 import lombok.Getter;
 import lombok.NonNull;
