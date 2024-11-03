@@ -9,7 +9,7 @@ import static org.geoserver.catalog.Predicates.and;
 import static org.geoserver.catalog.Predicates.equal;
 import static org.geoserver.catalog.Predicates.isNull;
 
-import dev.mccue.guava.Preconditions;
+import com.google.common.base.Preconditions;
 
 import org.geoserver.catalog.Info;
 import org.geoserver.catalog.WorkspaceInfo;

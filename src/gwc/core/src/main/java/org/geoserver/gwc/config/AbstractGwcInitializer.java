@@ -4,9 +4,9 @@
  */
 package org.geoserver.gwc.config;
 
-import static dev.mccue.guava.Preconditions.checkNotNull;
+import static com.google.common.base.Preconditions.checkNotNull;
 
-import dev.mccue.guava.Stopwatch;
+import com.google.common.base.Stopwatch;
 
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;

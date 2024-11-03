@@ -4,8 +4,8 @@
  */
 package org.geoserver.cloud.autoconfigure.gwc.integration;
 
-import static dev.mccue.guava.Preconditions.checkArgument;
-import static dev.mccue.guava.Preconditions.checkState;
+import static com.google.common.base.Preconditions.checkArgument;
+import static com.google.common.base.Preconditions.checkState;
 
 import static org.geowebcache.conveyor.Conveyor.CacheResult.MISS;
 
