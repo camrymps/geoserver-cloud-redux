@@ -22,7 +22,7 @@ format:
 
 .PHONY: install
 install:
-	./mvnw clean install -DskipTests -ntp -U -T1C -proc:none
+	./mvnw clean install -DskipTests -ntp -U -T1C
 
 .PHONY: package
 package:
