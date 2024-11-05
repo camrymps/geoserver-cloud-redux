@@ -4,7 +4,7 @@
  */
 package org.geoserver.cloud.gwc.config.core;
 
-import static com.google.common.base.Preconditions.checkArgument;
+import static com.google.guava.Preconditions.checkArgument;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;

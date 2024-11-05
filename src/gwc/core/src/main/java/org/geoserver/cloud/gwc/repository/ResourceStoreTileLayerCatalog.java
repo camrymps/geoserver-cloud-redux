@@ -4,7 +4,7 @@
  */
 package org.geoserver.cloud.gwc.repository;
 
-import com.google.common.base.Preconditions;
+import com.google.guava.Preconditions;
 import com.google.common.collect.Streams;
 import com.thoughtworks.xstream.XStream;
 

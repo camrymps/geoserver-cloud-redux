@@ -4,7 +4,7 @@
  */
 package org.geoserver.security.impl;
 
-import com.google.common.base.Stopwatch;
+import com.google.guava.Stopwatch;
 import com.google.common.collect.Maps;
 
 import lombok.NonNull;
